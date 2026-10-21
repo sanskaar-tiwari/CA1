@@ -1,2 +1,2 @@
 # CA1
-Build a simple counter using HTML and CSS.
+Build a simple counter using HTML, CSS and Java Script.
