@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: #eef2ff;
+            color: #1e293b;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            width: min(100%, 420px);
+            padding: 40px 32px;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 24px;
+            font-size: 1.5rem;
+        }
+
+        #counter {
+            margin: 0 0 32px;
+            color: #4f46e5;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        button {
+            min-width: 100px;
+            padding: 12px 18px;
+            border: 0;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: #ffffff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+
+        button:focus-visible {
+            outline: 3px solid #a5b4fc;
+            outline-offset: 3px;
+        }
+
+        #reset {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        #reset:hover {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Simple Counter</h1>
+        <p id="counter" aria-live="polite" aria-atomic="true">0</p>
+        <div class="buttons">
+            <button type="button" id="decrement">Decrement</button>
+            <button type="button" id="reset">Reset</button>
+            <button type="button" id="increment">Increment</button>
+        </div>
+    </main>
+
+    <script>
+        let count = 0;
+        const counterDisplay = document.getElementById("counter");
+
+        function changeCounter(amount) {
+            count = Math.max(0, count + amount);
+            counterDisplay.textContent = count;
+        }
+
+        document.getElementById("increment").addEventListener("click", () => {
+            changeCounter(1);
+        });
+
+        document.getElementById("decrement").addEventListener("click", () => {
+            changeCounter(-1);
+        });
+
+        document.getElementById("reset").addEventListener("click", () => {
+            count = 0;
+            counterDisplay.textContent = count;
+        });
+    </script>
+</body>
+</html>
